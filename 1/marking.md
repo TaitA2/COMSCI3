@@ -13,3 +13,11 @@
   * Haskell section
   * Computability section
 
+# UI
+* NO EXAM
+* 5% weekly journal
+* 10% class activities
+* 35% Group project
+  * 15% framing
+  * 20% submission
+* Design exercises
