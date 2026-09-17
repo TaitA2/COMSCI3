@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Othello</title>
+	</head>
+	<body>
+		<canvas id="gameBoard" width="640" height="740" style="border:1px solid #000000;">
+			Canvas not supported.
+		</canvas>
+		<p id="demo">Move the mouse in this window!</p>
+		<script>
+			var cellSize = 80;
+			var c = document.getElementById("gameBoard");
+			document.addEventListener("mousemove", function (event) {
+				document.getElementById("demo").innerHTML = "X: " + event.clientX + " Y: " + event.clientY;
+				});
+				var ctx = c.getContext("2d");
+				
+				// create Board - Empty 2d array
+				var Board = new Array(8);
+				for (i = 0; i < Board.length; i++) {
+					Board[i] = [];
+				}
+				
+				// starting pieces
+				Board[3][3] = "black";
+				Board[3][4] = "white";
+				Board[4][3] = "white";
+				Board[4][4] = "black";
+				
+				function drawPiece(i, j) {
+					let x = (i*cellSize) + (cellSize / 2);
+					let y = (j*cellSize) + (cellSize / 2);
+					
+					ctx.fillStyle = Board[i][j];
+					ctx.beginPath();
+					ctx.arc(x, y, cellSize/2, 0, 2*Math.PI)
+					ctx.closePath();
+					ctx.fill();
+					ctx.stroke();
+				}
+				
+				function drawBoard(){
+					for (var i = 0; i < 8; i++) {
+						for (var j = 0; j < 8; j++) {
+							// board grid
+							ctx.fillStyle = "white";
+							ctx.beginPath();
+							ctx.rect(i*cellSize, j*cellSize, cellSize, cellSize);
+							ctx.stroke();
+							
+							// pieces
+							let p = Board[i][j]
+							if (p == "black" || p == "white") {
+								drawPiece(i, j);
+							}
+						}
+					}
+				}
+				
+				drawBoard();
+				
+				// starting position
+		</script>
+	</body>
+</html>
