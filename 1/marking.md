@@ -21,3 +21,9 @@
   * 15% framing
   * 20% submission
 * Design exercises
+  * 15%
+  * 20%
+
+# AI Search
+* 40% Project
+* Final exam
