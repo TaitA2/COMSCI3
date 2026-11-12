@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>How to run JS locally</title>
+	</head>
+	<body>
+		<script type="module">
+			import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@3';
+			
+			const classifier = await pipeline(
+			'sentiment-analysis',
+			'Xenova/distilbert-base-uncased-finetuned-sst-2-english',
+			{ dtype: 'q8' }
+			);
+			
+			const result = await classifier('The product was great, but shipping was slow.');
+			console.log(result);
+		</script>
+	</body>
+</html>
